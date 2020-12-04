@@ -1,6 +1,5 @@
-import 'package:doctorapp/user_files/DoctorCardList.dart';
-import 'package:doctorapp/user_files/U_Location.dart';
 import 'package:doctorapp/user_files/UserEmergencyCall.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:doctorapp/services/auth.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
@@ -26,8 +25,8 @@ class _UserLoginState extends State<UserLogin> {
         _load = true;
       });
       await auth.signInWithEmailAndPassword(_kUEmail, _kUPassword);
-      await updateUser();
-      Navigator.pushNamed(context, UserEmergencyCall.id);
+      await getData();
+      Navigator.pushNamed(context, UserEmergencyCall.id, arguments: _kUPhone);
       setState(() {
         _load = false;
       });
@@ -36,28 +35,15 @@ class _UserLoginState extends State<UserLogin> {
     }
   }
 
-  CollectionReference users = FirebaseFirestore.instance.collection('user_id');
-
   Future<void> getData() async {
+    CollectionReference users =
+        FirebaseFirestore.instance.collection('user_id');
     final messages = await users.get();
     for (var message in messages.docs) {
       if (message.data()['email'] == _kUEmail) {
         _kUPhone = message.data()['phoneno'];
       }
     }
-  }
-
-  Future<void> updateUser() async {
-    location.Location userLoc = await location.location.getCurrentLocation();
-    await getData();
-    return users
-        .doc(_kUPhone)
-        .update({
-          'latitude': userLoc.kLatitude,
-          'longitude': userLoc.kLongitude,
-        })
-        .then((value) => print("User Updated"))
-        .catchError((error) => print("Failed to update user: $error"));
   }
 
   bool _load = false;

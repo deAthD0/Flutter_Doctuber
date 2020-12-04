@@ -1,4 +1,3 @@
-import 'package:doctorapp/Doctor_files/DoctorA.dart';
 import 'package:flutter/material.dart';
 import 'package:doctorapp/services/auth.dart' as auth;
 

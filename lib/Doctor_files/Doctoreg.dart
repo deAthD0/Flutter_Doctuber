@@ -46,6 +46,7 @@ class _DoctoregState extends State<Doctoreg> {
     );
 
     try {
+      // ignore: await_only_futures
       await firebase_storage.FirebaseStorage.instance
           .ref()
           .child(_kUPhoneNumber)

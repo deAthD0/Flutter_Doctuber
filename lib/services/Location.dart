@@ -4,6 +4,7 @@ class Location {
   double kLatitude;
   double kLongitude;
 
+  // ignore: missing_return
   Future<Location> getCurrentLocation() async {
     try {
       geolocator.Position kPosition = await geolocator.Geolocator()

@@ -35,11 +35,13 @@ class Auth implements AuthBase {
 
   @override
   Future<User> currentUser() async {
+    // ignore: await_only_futures
     final user = await _firebaseAuth.currentUser;
     return _userFromFirebase(user);
   }
 
   Future<String> emailFromFirebase() async {
+    // ignore: await_only_futures
     final user = await _firebaseAuth.currentUser;
     return user.email;
   }

@@ -12,6 +12,7 @@ class DoctorList extends StatefulWidget {
 
 class _DoctorListState extends State<DoctorList> {
   @override
+  // ignore: override_on_non_overriding_member
   CollectionReference doctors =
       FirebaseFirestore.instance.collection('doctor_id');
   Widget build(BuildContext context) {
@@ -23,11 +24,10 @@ class _DoctorListState extends State<DoctorList> {
             padding: EdgeInsets.only(right: 20.0),
             child: MaterialButton(
               onPressed: () {
-                auth.signOut();
                 Navigator.pop(context);
               },
               child: Text(
-                'Log Out',
+                'Go Back',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20.0,

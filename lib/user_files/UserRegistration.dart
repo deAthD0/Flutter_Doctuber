@@ -1,11 +1,9 @@
-import 'package:doctorapp/user_files/DoctorCardList.dart';
 import 'package:doctorapp/user_files/UserLogin.dart';
 import 'package:doctorapp/services/Location.dart' as location;
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctorapp/services/auth.dart';
-import 'package:doctorapp/user_files/U_Location.dart';
 
 class UserRegistration extends StatefulWidget {
   static const String id = 'UserRegistration';

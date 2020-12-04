@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:doctorapp/Doctor_files/D_emergency.dart';
 import 'package:doctorapp/Doctor_files/DoctorA.dart';
 import 'package:flutter/material.dart';
 import 'package:doctorapp/services/auth.dart';

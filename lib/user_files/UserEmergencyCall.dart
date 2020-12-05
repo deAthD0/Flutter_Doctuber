@@ -17,7 +17,7 @@ class _UserEmergencyCallState extends State<UserEmergencyCall> {
         FirebaseFirestore.instance.collection('user_id');
     final String args = ModalRoute.of(context).settings.arguments;
 
-    Future<void> updateUser() async {
+    Future<void> updateUserYes() async {
       location.Location userLoc = await location.location.getCurrentLocation();
       return users
           .doc(args)
@@ -30,21 +30,29 @@ class _UserEmergencyCallState extends State<UserEmergencyCall> {
           .catchError((error) => print("Failed to update user: $error"));
     }
 
+    Future<void> updateUserNo() async {
+      return users
+          .doc(args)
+          .update({
+            'isInVain': false,
+          })
+          .then((value) => print("User Updated"))
+          .catchError((error) => print("Failed to update user: $error"));
+    }
+
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text('Emergency App'),
-        ),
+        title: Text('Emergency App'),
         actions: <Widget>[
           Padding(
-            padding: EdgeInsets.only(right: 20.0),
+            padding: EdgeInsets.only(right: 0.0),
             child: MaterialButton(
               onPressed: () {
-                auth.auth.signOut();
+                updateUserNo();
                 Navigator.pop(context);
               },
               child: Text(
-                'Log Out',
+                'Back to Safety',
                 style: TextStyle(
                   color: Colors.white,
                   //backgroundColor: Colors.red,
@@ -81,7 +89,7 @@ class _UserEmergencyCallState extends State<UserEmergencyCall> {
                 child: MaterialButton(
                   onPressed: () async {
                     print('Alert Emergency Triggered');
-                    await updateUser();
+                    await updateUserYes();
                     setState(() {});
                     Navigator.pushNamed(context, DoctorList.id);
                   },

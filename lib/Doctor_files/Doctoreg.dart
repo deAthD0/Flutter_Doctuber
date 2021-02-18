@@ -38,13 +38,12 @@ class _DoctoregState extends State<Doctoreg> {
     if (file == null) {
       NullThrownError();
     }
-    firebase_storage.StorageMetadata metadata =
-        firebase_storage.StorageMetadata(
+    firebase_storage.SettableMetadata metadata =
+        firebase_storage.SettableMetadata(
       customMetadata: <String, String>{
         'userId': _kUEmail,
       },
     );
-
     try {
       // ignore: await_only_futures
       await firebase_storage.FirebaseStorage.instance

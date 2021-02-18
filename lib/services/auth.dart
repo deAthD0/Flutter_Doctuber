@@ -114,4 +114,4 @@ class Auth implements AuthBase {
   }
 }
 
-Auth auth = new Auth();
+Auth auth = Auth();

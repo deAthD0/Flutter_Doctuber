@@ -86,46 +86,46 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 //              ListTile(
 //                title: Text('Update User info'),
 //              ),
-                GestureDetector(
-                  child: ListTile(
-                    leading: Icon(Icons.exit_to_app),
-                    title: Text('Logout'),
-                    onTap: () {
-                      setState(() {
-                        Page = Hamburger.Emergency;
-                        Alert(
-                          context: context,
-                          type: AlertType.warning,
-                          title: "Are You Sure You Want to Log Out?",
-                          style: AlertStyle(
-                            backgroundColor: Colors.white70,
-                            isCloseButton: false,
-                          ),
-                          buttons: [
-                            DialogButton(
-                              child: Text(
-                                "LOGOUT",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 20),
-                              ),
-                              onPressed: () => Navigator.pop(context),
-                              color: Colors.red,
-                            ),
-                            DialogButton(
-                              child: Text(
-                                "CANCEL",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 20),
-                              ),
-                              onPressed: () => Navigator.pop(context),
-                              color: Colors.blue,
-                            ),
-                          ],
-                        ).show();
-                      });
-                    },
-                  ),
-                ),
+                // GestureDetector(
+                //   child: ListTile(
+                //     leading: Icon(Icons.exit_to_app),
+                //     title: Text('Logout'),
+                //     onTap: () {
+                //       setState(() {
+                //         Page = Hamburger.Emergency;
+                //         Alert(
+                //           context: context,
+                //           type: AlertType.warning,
+                //           title: "Are You Sure You Want to Log Out?",
+                //           style: AlertStyle(
+                //             backgroundColor: Colors.white70,
+                //             isCloseButton: false,
+                //           ),
+                //           buttons: [
+                //             DialogButton(
+                //               child: Text(
+                //                 "LOGOUT",
+                //                 style: TextStyle(
+                //                     color: Colors.white, fontSize: 20),
+                //               ),
+                //               onPressed: () => Navigator.pop(context),
+                //               color: Colors.red,
+                //             ),
+                //             DialogButton(
+                //               child: Text(
+                //                 "CANCEL",
+                //                 style: TextStyle(
+                //                     color: Colors.white, fontSize: 20),
+                //               ),
+                //               onPressed: () => Navigator.pop(context),
+                //               color: Colors.blue,
+                //             ),
+                //           ],
+                //         ).show();
+                //       });
+                //     },
+                //   ),
+                // ),
               ],
             ),
           ),
